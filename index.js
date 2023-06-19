@@ -1,65 +1,49 @@
 function getComputerChoice() {
-    // randomly returns "Rock" "Paper" or "Scissors";
     let choiceNum = Math.floor(Math.random() * 3) + 1; 
 
     if (choiceNum == 1) {
         return "rock";
     } else if (choiceNum == 2) {
-        return "paper"
+        return "paper";
     } else {
-        return "scissors"
+        return "scissors";
     }
-}
+} // returns randomly "rock, paper, scissors";
     
 function getPlayerChoice(){
     let selection = prompt("Pick Rock, Paper or Scissors");
     let playerSelection = selection.toLowerCase();
     
     return playerSelection;
-    // it should be case-insensitive, 
-    // you can input RoCk for example 
-}
-
-
-getPlayerChoice();
-const playerChoice = getPlayerChoice();
-console.log(playerChoice);
-
-
-// TEST ONLY - setter
-getComputerChoice();
-const computerChoice = getComputerChoice();
-console.log(computerChoice);
-// ==================
- 
-
+} // returns player prompt in lowerCase
 
 function playRound(playerChoice, computerChoice) {
     if (computerChoice == playerChoice) {
-        return "Draw!";
+        return "Draw!";                                 // case 1
+    } else if  (playerChoice == "rock" && computerChoice == "scissors"){
+        return "Player won! Rock beats Scissors!";      // case 2
+    } else if  (playerChoice == "rock" && computerChoice == "paper") {
+        return  "Computer won! Paper beats Rock!";      // case 3
+    } else if  (playerChoice == "scissors" && computerChoice == "rock") {
+        return  "Computer won! Rock beats Scissors!";    // case 4
+    } else if  (playerChoice == "scissors" && computerChoice == "paper") {
+        return "Player won! Scissors beats paper!";      // case 5
+    } else if  (playerChoice == "paper" && computerChoice == "rock") {
+        return "Player won! Paper beats rock!";         // case 6
+    } else if  (playerChoice == "paper" && computerChoice == "scissors") {
+        return "Computer won! Scissors beats Paper!";   // case 7
     } else {
-        return "TODO";
+        return "Something went wrong!";                 // wrong input case 8
     }
-    
-    // TODO
-    // switch (playerChoice === getComputerChoice) {
-    //     case value:
-            
-    //         break;
-    
-    //     default:
-    //         break;
-    }// return a string that declares the winner like:
-    // "You lose! Paper beats Rock"
-}
-
-const playerSelection = "rock";
-console.log(playRound(playerSelection, computerSelection));
+} // business game logic, using if statements 
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        playRound(playerSelection, computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        const computerChoice = getComputerChoice();        
+        const playerChoice = getPlayerChoice();
+        alert(playRound(playerChoice, computerChoice));
+        console.log(playRound(playerChoice, computerChoice));
     }
-}
+} // 5 rounds of Rock Paper Scissors
 
+game();
