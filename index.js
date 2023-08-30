@@ -1,3 +1,19 @@
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener('click', () => {
+    alert(playRound('rock', getComputerChoice()));
+});
+
+paperBtn.addEventListener('click', () => {
+    alert(playRound('paper', getComputerChoice()));
+});
+
+scissorsBtn.addEventListener('click', () => {
+    alert(playRound('scissors', getComputerChoice()));
+});
+
 function getComputerChoice() {
     let choiceNum = Math.floor(Math.random() * 3) + 1; 
 
@@ -10,12 +26,9 @@ function getComputerChoice() {
     }
 } // returns randomly "rock, paper, scissors";
     
-function getPlayerChoice(){
-    let selection = prompt("Pick Rock, Paper or Scissors");
-    let playerSelection = selection.toLowerCase();
-    
-    return playerSelection;
-} // returns player prompt in lowerCase
+function getPlayerChoice(selection){
+    return selection;
+} // returns player choice
 
 function playRound(playerChoice, computerChoice) {
     if (computerChoice == playerChoice) {
@@ -57,4 +70,4 @@ function game() {
     } alert(`Player: ${playerScore}  Computer: ${compScore}`);
 } // 5 rounds of Rock Paper Scissors
 
-game();
+// game();
