@@ -14,6 +14,8 @@ scissorsBtn.addEventListener('click', () => {
     alert(playRound('scissors', getComputerChoice()));
 });
 
+
+
 function getComputerChoice() {
     let choiceNum = Math.floor(Math.random() * 3) + 1; 
 
@@ -71,3 +73,7 @@ function game() {
 } // 5 rounds of Rock Paper Scissors
 
 // game();
+
+const resultDiv = document.querySelector('.result');
+// resultDiv.textContent = `Player: ${playerScore}  Computer: ${compScore}`;
+resultDiv.textContent = "Player :...  Computer :...";
