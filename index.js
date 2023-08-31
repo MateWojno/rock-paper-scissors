@@ -1,17 +1,58 @@
+var playerScore = 0;
+var compScore = 0;
+
+const resultDiv = document.querySelector('.result');
+resultDiv.textContent = "Player :...  Computer :...";
+
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 
+
 rockBtn.addEventListener('click', () => {
-    alert(playRound('rock', getComputerChoice()));
+    let resultStr = playRound('rock', getComputerChoice());
+    if (resultStr.includes("Player won!")) {
+        playerScore++;
+        return resultDiv.textContent 
+                = `Player : ${playerScore}  Computer: ${compScore} `; 
+         
+    } else if (resultStr.includes("Computer won!")) {
+        compScore++;
+        return resultDiv.textContent 
+                = `Player : ${playerScore}  Computer: ${compScore}`;  
+        
+    }
+    
 });
 
 paperBtn.addEventListener('click', () => {
-    alert(playRound('paper', getComputerChoice()));
+    let resultStr = playRound('paper', getComputerChoice());
+    if (resultStr.includes("Player won!")) {
+        playerScore++;
+        return resultDiv.textContent 
+                = `Player : ${playerScore}  Computer: ${compScore} `; 
+         
+    } else if (resultStr.includes("Computer won!")) {
+        compScore++;
+        return resultDiv.textContent 
+                = `Player : ${playerScore}  Computer: ${compScore}`;  
+        
+    }
 });
 
 scissorsBtn.addEventListener('click', () => {
-    alert(playRound('scissors', getComputerChoice()));
+    let resultStr = playRound('scissors', getComputerChoice());
+    if (resultStr.includes("Player won!")) {
+        playerScore++;
+        return resultDiv.textContent 
+                = `Player : ${playerScore}  Computer: ${compScore} `; 
+         
+    } else if (resultStr.includes("Computer won!")) {
+        compScore++;
+        return resultDiv.textContent 
+                = `Player : ${playerScore}  Computer: ${compScore}`;  
+        
+    }
 });
 
 
@@ -52,28 +93,4 @@ function playRound(playerChoice, computerChoice) {
     }
 } // business game logic, using if statements 
 
-function game() {
-    var compScore  = 0;
-    var playerScore = 0;
-    
-    for (let i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice();        
-        let playerChoice = getPlayerChoice();
-        alert(playRound(playerChoice, computerChoice));
-        console.log(playRound(playerChoice, computerChoice));
-        
-        // Scoring system
-        let alertString = playRound(playerChoice, computerChoice);
-        if (alertString.includes("Player won!")) {
-            playerScore++;
-        } else if (alertString.includes("Computer won!")) {
-            compScore++;
-        }
-    } alert(`Player: ${playerScore}  Computer: ${compScore}`);
-} // 5 rounds of Rock Paper Scissors
 
-// game();
-
-const resultDiv = document.querySelector('.result');
-// resultDiv.textContent = `Player: ${playerScore}  Computer: ${compScore}`;
-resultDiv.textContent = "Player :...  Computer :...";
