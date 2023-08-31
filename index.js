@@ -8,9 +8,21 @@ const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 
+function resetResult() {
+    if(playerScore === 5) {
+        playerScore = 0;
+        compScore = 0;
+        return alert("You won!");
+    } else if (compScore === 5) {
+        playerScore = 0;
+        compScore = 0;
+        return alert("You lose!");
+    }
+}
 
 rockBtn.addEventListener('click', () => {
     let resultStr = playRound('rock', getComputerChoice());
+    resetResult();
     if (resultStr.includes("Player won!")) {
         playerScore++;
         return resultDiv.textContent 
@@ -27,6 +39,7 @@ rockBtn.addEventListener('click', () => {
 
 paperBtn.addEventListener('click', () => {
     let resultStr = playRound('paper', getComputerChoice());
+    resetResult();
     if (resultStr.includes("Player won!")) {
         playerScore++;
         return resultDiv.textContent 
@@ -42,6 +55,7 @@ paperBtn.addEventListener('click', () => {
 
 scissorsBtn.addEventListener('click', () => {
     let resultStr = playRound('scissors', getComputerChoice());
+    resetResult();
     if (resultStr.includes("Player won!")) {
         playerScore++;
         return resultDiv.textContent 
@@ -54,7 +68,6 @@ scissorsBtn.addEventListener('click', () => {
         
     }
 });
-
 
 
 function getComputerChoice() {
