@@ -1,0 +1,46 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line on small screens */
+    gap: 10px; /* Add some spacing between buttons */
+}
+
+.choice {
+    width: 120px; /* Wider buttons for better touch interaction on mobile devices */
+    height: 50px; /* Larger buttons for improved usability */
+    font-size: 18px; /* Increase font size for better readability */
+    background-color: #007bff; /* Use a modern blue color */
+    color: #fff; /* White text for better contrast */
+    border: none;
+    border-radius: 8px; /* Slightly rounder corners */
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.choice:hover {
+    background: #0056b3; /* Darker background color on hover */
+    transform: scale(1.03); /* Slight scale effect on hover for a modern touch */
+}
+
+.result {
+    text-align: center;
+    font-size: 24px; /* Larger font size for result text */
+    margin-top: 20px; /* Add some space between buttons and result text */
+    color: #333; /* Darker text color for better contrast */
+}
+
+.result p {
+    margin: 0;
+}
